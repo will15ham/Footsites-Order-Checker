@@ -8,5 +8,5 @@ This project was created to help people check the status of muliple footsites or
 # How to setup the CSV
 Go to `https://docs.google.com/spreadsheets/d/1dXVei4OLduGydK2yIgOWtpQzoaF3ijlQ9lI7Fvl2ZVU/edit?usp=sharing`
 Fill you information into the email, order number, and webhook section. 
-#TODO
+# TODO
 Proxy Support
