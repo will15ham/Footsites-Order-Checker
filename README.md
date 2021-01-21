@@ -1,6 +1,8 @@
 # Footsites-Order-Checker
 This project was created to help people check the status of muliple footsites orders in a quick, clean, effcient manner.
 
+![alt text](https://cdn.discordapp.com/attachments/614570551284858940/801951595239702528/unknown.png)
+
 # Setup
 1. Clone the repository
 2. Run `npm install` to install dependencies
