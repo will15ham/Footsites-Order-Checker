@@ -1,5 +1,5 @@
 # Footsites-Order-Checker
-This project was created to help people check the status of muliple footsites orders in a quick, clean, effcient manner. \
+This project was created to help people check the status of muliple footsites orders in a quick, clean, effcient manner.
 # Setup
 1. Clone the repository
 2. Run `npm install` to install dependencies
