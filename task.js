@@ -133,15 +133,15 @@ module.exports = class Task {
                           },
                           {
                             "name": "Email:",
-                            "value": this.email
+                            "value": `||${this.email}||`
                           },
                           {
                             "name": "Order Number:",
-                            "value": this.orderNumber
+                            "value": `||${this.orderNumber}||`
                           },
                           {
                             "name": "Tracking Number:",
-                            "value": this.trackingNumber
+                            "value": `||${this.trackingNumber}||`
                           }
                         ]
                       }
