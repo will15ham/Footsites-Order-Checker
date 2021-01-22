@@ -6,6 +6,8 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 module.exports = class Task {
     constructor( email, orderNumber, webhook ) {
+        this.cookieJar = new tough.CookieJar();
+        
         this.email = email;
         this.orderNumber = orderNumber;
         this.webhook = webhook;
@@ -20,7 +22,7 @@ module.exports = class Task {
         this.trackingNumber;
     }
 
-    async createSession(cookiejar) {
+    async createSession() {
         try {
             let response = await got(`https://www.footlocker.com/api/v3/session?timestamp=${Date.now().toString()}`, {
                 headers: {
@@ -34,7 +36,7 @@ module.exports = class Task {
                     'accept-encoding': 'gzip, deflate, br',
                     'accept-language': 'en-US,en;q=0.9',
                 },
-                cookieJar: cookiejar
+                cookieJar: this.cookieJar
             });
             
             if (response.statusCode == 200) {
@@ -52,7 +54,7 @@ module.exports = class Task {
         }
     }
 
-    async checkOrder(cookiejar) {
+    async checkOrder() {
         try {
             let response = await got.post(`https://www.footlocker.com/api/users/orders/status?timestamp=${Date.now().toString()}`, {
                 headers: {
@@ -71,7 +73,7 @@ module.exports = class Task {
                     code: this.orderNumber,
                     customerEmail: this.email
                 },
-                cookieJar: cookiejar
+                cookieJar: this.cookieJar
             });
             
             if (response.statusCode == 200) {
@@ -155,10 +157,8 @@ module.exports = class Task {
     }
 
     async initialize() {
-        const cookiejar = new tough.CookieJar();
-
-        await this.createSession(cookiejar);
-        await this.checkOrder(cookiejar);
+        await this.createSession();
+        await this.checkOrder();
         await this.sendWebhook();
     }
 }
