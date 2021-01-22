@@ -10,6 +10,7 @@ This project was created to help people check the status of muliple footsites or
 4. Run `node index.js`
 # How to setup the CSV
 Go to `https://docs.google.com/spreadsheets/d/1dXVei4OLduGydK2yIgOWtpQzoaF3ijlQ9lI7Fvl2ZVU/edit?usp=sharing`
+Download it and name it tasks.csv, then move it into the footsitesOrderChecker folder.
 Fill you information into the email, order number, and webhook section. 
 # TODO
 Proxy Support
